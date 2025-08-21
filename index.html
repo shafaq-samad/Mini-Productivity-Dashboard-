@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Productivity Dashboard — Your Personal Productivity Hub</title>
+  <meta name="description" content="Productivity Dashboard — To-do, Notes, Pomodoro, Habit Tracker. All data stored locally in your browser for privacy." />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <!-- Productivity Dashboard Logo -->
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" stroke="#4C3B4D" stroke-width="8"/>
+            <path d="M30 50 L45 65 L70 35" stroke="#4C3B4D" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="50" r="20" stroke="#4C3B4D" stroke-width="6"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Productivity Dashboard</h1>
+          <div class="small">Your personal productivity hub — All data stored locally</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="btn" id="exportBtn">Export Data</button>
+        <button class="btn" id="importBtn">Import Data</button>
+        <button class="btn primary" id="resetBtn">Reset All</button>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="hero-card">
+        <h2>Your Personal Productivity Hub</h2>
+        <p class="small">Everything you need to stay organized and focused in one place. All your data is stored locally in your browser for complete privacy and security.</p>
+
+        <div class="features">
+          <div class="feat">To-Do List with completion tracking</div>
+          <div class="feat">Quick notes with persistent storage</div>
+          <div class="feat">Pomodoro timer with customizable intervals</div>
+          <div class="feat">Weekly habit tracker</div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <button class="btn primary" id="startTour">Get Started</button>
+          <a class="btn" href="#" id="docsLink">How to Use</a>
+        </div>
+
+        <div class="section small">
+          <strong>Privacy First:</strong>
+          <ul>
+            <li>All data stays on your device - we don't track or store anything</li>
+            <li>Export your data anytime for backup or migration</li>
+            <li>Works completely offline once loaded</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="hero-card">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div class="small">Your Dashboard</div>
+            <h3 style="margin:4px 0 0 0">Productivity Tools</h3>
+          </div>
+          <div class="small">Local Storage • Private</div>
+        </div>
+
+        <!-- App surface -->
+        <div class="app-surface" style="margin-top:12px">
+
+          <!-- To-Do -->
+          <div class="card" id="todoCard">
+            <h3>To‑Do List</h3>
+            <form id="todoForm" onsubmit="return false;">
+              <div style="display:flex;gap:8px">
+                <input id="todoInput" type="text" placeholder="Add task... (enter to save)" />
+                <button class="btn" id="addTodo">Add</button>
+              </div>
+            </form>
+            <div class="todo-list" id="todoList" style="margin-top:12px"></div>
+          </div>
+
+          <!-- Notes -->
+          <div class="card" id="notesCard">
+            <h3>Quick Notes</h3>
+            <textarea id="noteInput" placeholder="Write your note here... (ctrl+enter to save)"></textarea>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button class="btn" id="saveNote">Save Note</button>
+              <button class="btn" id="clearNotes">Clear All</button>
+            </div>
+            <div class="notes-grid" id="notesGrid" style="margin-top:12px"></div>
+          </div>
+
+          <!-- Pomodoro -->
+          <div class="card" id="pomCard" style="grid-column: span 2">
+            <h3>Pomodoro Timer</h3>
+            <div class="pomodoro-center">
+              <div class="small">Mode: <span id="pomMode">Work</span></div>
+              <div class="timer" id="pomTimer">25:00</div>
+              <div class="controls">
+                <button class="btn" id="pomStart">Start</button>
+                <button class="btn" id="pomPause">Pause</button>
+                <button class="btn" id="pomReset">Reset</button>
+              </div>
+              <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+                <label class="small">Work (min)</label>
+                <input id="workDuration" type="number" min="1" max="120" value="25" style="width:80px" />
+                <label class="small">Break (min)</label>
+                <input id="breakDuration" type="number" min="1" max="60" value="5" style="width:80px" />
+                <button class="btn" id="saveDur">Save</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Habit Tracker -->
+          <div class="card" id="habitCard" style="grid-column: span 2">
+            <h3>Habit Tracker</h3>
+            <div id="habitList"></div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <input id="habitName" type="text" placeholder="New habit (e.g. Exercise daily)" />
+              <button class="btn" id="addHabit">Add Habit</button>
+            </div>
+            <div class="small" style="margin-top:8px">Click on days to mark them as completed. Your progress is automatically saved.</div>
+          </div>
+
+        </div>
+
+      </aside>
+    </main>
+
+    <section class="section">
+      <h3>About This App</h3>
+      <p class="small">This productivity dashboard helps you organize your tasks, take notes, focus with the Pomodoro technique, and track your habits. All data is stored locally in your browser using localStorage, ensuring your information remains private and secure.</p>
+      <div style="margin-top:8px" class="small"><strong>Tip:</strong> Use the export feature to back up your data regularly, especially before clearing browser data.</div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">
+            <!-- Mini version of the logo -->
+            <svg viewBox="0 0 100 100" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="45" stroke="#4C3B4D" stroke-width="8"/>
+              <path d="M30 50 L45 65 L70 35" stroke="#4C3B4D" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="50" cy="50" r="20" stroke="#4C3B4D" stroke-width="6"/>
+            </svg>
+          </div>
+          <div class="footer-logo-text">Productivity Dashboard</div>
+        </div>
+        <p class="footer-description small">
+          Your personal productivity hub with privacy-first design. All data stays securely on your device.
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-social">
+  <h4>Connect</h4>
+  <div class="footer-social-icons">
+    <!-- LinkedIn -->
+    <a class="icon-btn" id="linkedinBtn" href="https://www.linkedin.com/in/shafaqabdulsamad/" target="_blank" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <!-- GitHub -->
+    <a class="icon-btn" href="https://github.com/shafaq-samad" target="_blank" aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <!-- Email -->
+    <a class="icon-btn" href="mailto:shafaqsamad111@gmail.com" aria-label="Email">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </div>
+</div>
+      
+      <div class="footer-bottom">
+        <div class="small">© 2025 Productivity Dashboard. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js">
+  </script>
+</body>
+</html>
