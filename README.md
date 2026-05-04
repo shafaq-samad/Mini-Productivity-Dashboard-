@@ -1,46 +1,63 @@
-# 📊 Mini Productivity Dashboard
+# Orbit
 
-A single-page **SaaS-style productivity app** built with **HTML, CSS, and JavaScript**.  
-It includes four core productivity tools — **To-Do List, Notes, Pomodoro Timer, and Habit Tracker** — all in one clean and professional dashboard.  
-All data is stored in **localStorage**, so your tasks, notes, and habits persist even after refreshing or closing the browser.  
+Orbit is a private, local-first productivity dashboard designed like a premium mission-control console. It combines tasks, notes, a Pomodoro timer, and habit tracking into one dense, high-contrast workspace that feels more like a crafted product than a starter template.
 
----
+## What It Does
 
-## ✨ Features
+- Keeps everything in the browser with `localStorage`
+- Lets you manage tasks, notes, focus sessions, and habits from one screen
+- Includes import, export, and reset controls for easy backup
+- Uses a custom dark visual system with animated glows, glass surfaces, and responsive layout rules
 
-### ✅ To-Do List
-- Add, delete, and mark tasks as completed
-- Tasks stored with timestamps and persist via localStorage
-- Clean UI with instant updates
+## Key Features
 
-### 📝 Notes
-- Write and save quick notes
-- Each note displays its creation date
+### Task Flow
+- Add, complete, and delete to-do items
+- Completed tasks fade with a strikethrough treatment
+- Instant updates with persistent storage
+
+### Notes
+- Save quick thoughts without leaving the dashboard
 - Delete individual notes or clear all notes at once
-- Supports multi-line notes
+- Notes render as warm, slightly varied cards for a more human feel
 
-### ⏳ Pomodoro Timer
-- Work/Break intervals (default: 25 min work, 5 min break)
-- Start, Pause, and Reset controls
-- Adjustable durations for both work and break sessions
-- Persists current state even if you close or refresh the page
+### Focus Timer
+- Pomodoro-style work and break sessions
+- Start, pause, reset, and duration controls
+- Glowing timer treatment with a circular progress ring
 
-### 📅 Habit Tracker
-- Track habits across the past 7 days
-- Add new habits (e.g., *Read 30 mins*, *Exercise*, *Code daily*)
-- Toggle each day to mark progress
-- Delete habits when no longer needed
+### Habits
+- Track a rolling 7-day habit view
+- Toggle days on and off with a single click
+- Supports unlimited habits with persistent progress
 
----
+## Visual Direction
 
-## 🛠️ Tech Stack
+- Dark luxury palette with indigo and cyan glow accents
+- Syne for headings, DM Sans for body text, JetBrains Mono for the timer
+- Glassmorphism cards with subtle gradient borders
+- Animated starfield, custom cursor, hover lift, and soft spring transitions
 
-- **HTML5** → semantic structure, single-page design  
-- **CSS3** → modern SaaS-style UI, responsive and clean layout  
-- **JavaScript (Vanilla JS)** → state management, interactivity, persistence  
-- **localStorage API** → client-side data storage  
+## Built With
 
----
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Browser `localStorage`
 
-## 📂 Project Structure
+## Run It
+
+Open `index.html` in a browser or use a local dev server if you prefer live reload.
+
+## Project Structure
+
+- `index.html` — app shell and markup
+- `styles.css` — full visual system and responsive behavior
+- `script.js` — state, rendering, and interactions
+
+## Notes
+
+- All data stays local to the browser
+- Export your workspace before clearing storage if you want a backup
+- The UI is optimized for desktop first, with responsive stacking on smaller screens
 
